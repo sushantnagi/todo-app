@@ -1,4 +1,4 @@
-# todos = []  # to keep data stored, we include a list later
+# If we input show after running the program, it outputs error as 'todos' has not been defined
 while True:
     user_input = input('Enter add, show, edit, completed or exit: ')
     user_input = user_input.strip()
@@ -19,6 +19,10 @@ while True:
             file.close()
 
         case 'show' | 'display':
+            fileshow = open('Files/TDL.txt', 'r')
+            todos = fileshow.readlines()
+            file.close()
+
             for index, item in enumerate(todos):
                 item = item.title()
                 index = index + 1
@@ -43,12 +47,4 @@ while True:
 
         case random_input:
             print('Please enter the correct input')
-
-
-
-
 print('Thanks')
-
-# Read function is exhaustive
-# Once you open a file, cursor stats from beggining and when file.read happens, it goes till the end. If you use read
-# again, it will read empty space ahead and an empty output. To fix this, use file.close and file.open again.
