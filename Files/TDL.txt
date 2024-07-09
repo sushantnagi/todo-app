@@ -1,10 +1,3 @@
-t1
-t2
-t3
-t1
-t2
-t3
-n1
-task1
-task2
-task3
+1
+2
+3
