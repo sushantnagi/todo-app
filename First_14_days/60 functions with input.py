@@ -1,7 +1,13 @@
-# from functions67 import get_todos, write_todos
-# If functions.py is in a folder called module:
-# from module import functions
-import functions67
+def get_todos(filepath):  # filepath is parameter
+    with open(filepath, 'r') as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+def write_todos(filepath, todos_arg):
+    with open(filepath, 'w') as file:
+        file.writelines(todos_arg)
+        # This function is a procedure so no need to have a return statement, as it does not produce anything.
+
 
 
 while True:
@@ -12,14 +18,14 @@ while True:
     if user_input.startswith('add'):
         task = user_input[4:] + "\n"
 
-        todos = functions67.get_todos()
+        todos = get_todos(filepath='../Files/TDL.txt')  # Files/TDL.txt is argument
 
         todos.append(task)
 
-        functions67.write_todos(todos)
+        write_todos('../Files/TDL.txt', todos)  # No variable assignment here, as it will return none.
 
     elif user_input.startswith('show'):
-        todos = functions67.get_todos()
+        todos = get_todos('../Files/TDL.txt')
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -33,11 +39,11 @@ while True:
             number = user_input[5:]
             number = int(number) - 1
 
-            todos = functions67.get_todos()
+            todos = get_todos('../Files/TDL.txt')
             new_task = input('Enter the new task: ')
             todos[number] = new_task + '\n'
 
-            functions67.write_todos(todos)
+            write_todos('../Files/TDL.txt', todos)
 
             print('Task successfully edited.')
         except ValueError:
@@ -51,12 +57,12 @@ while True:
         try:
             number = int(user_input[9:])
 
-            todos = functions67.get_todos()
+            todos = get_todos('../Files/TDL.txt')
             uuuu = number - 1
             todo_rem = todos[uuuu].strip('\n')
             todos.pop(number - 1)
 
-            functions67.write_todos(todos)
+            write_todos('../Files/TDL.txt', todos)
 
             print(f"Todo {todo_rem} has been removed")
         except ValueError:

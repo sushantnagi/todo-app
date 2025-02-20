@@ -1,9 +1,3 @@
-# from functions67 import get_todos, write_todos
-# If functions.py is in a folder called module:
-# from module import functions
-import functions67
-
-
 while True:
     user_input = input('Enter add, show, edit, complete or exit: ')
     user_input = user_input.strip()
@@ -11,15 +5,17 @@ while True:
 
     if user_input.startswith('add'):
         task = user_input[4:] + "\n"
-
-        todos = functions67.get_todos()
+        with open('../Files/TDL.txt', 'r') as file:
+            todos = file.readlines()
 
         todos.append(task)
 
-        functions67.write_todos(todos)
+        with open('../Files/TDL.txt', 'w') as file:
+            file.writelines(todos)
 
     elif user_input.startswith('show'):
-        todos = functions67.get_todos()
+        with open('../Files/TDL.txt', 'r') as fileshow:
+            todos = fileshow.readlines()
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -33,14 +29,15 @@ while True:
             number = user_input[5:]
             number = int(number) - 1
 
-            todos = functions67.get_todos()
+            with open('../Files/TDL.txt', 'r') as file:
+                todos = file.readlines()
             new_task = input('Enter the new task: ')
             todos[number] = new_task + '\n'
-
-            functions67.write_todos(todos)
+            with open('../Files/TDL.txt', 'w') as file:
+                file.writelines(todos)
 
             print('Task successfully edited.')
-        except ValueError:
+        except ValueError :
             print("Only specify task number to edit.")
             continue
 
@@ -51,13 +48,13 @@ while True:
         try:
             number = int(user_input[9:])
 
-            todos = functions67.get_todos()
+            with open('../Files/TDL.txt', 'r') as file:
+                todos = file.readlines()
             uuuu = number - 1
             todo_rem = todos[uuuu].strip('\n')
             todos.pop(number - 1)
-
-            functions67.write_todos(todos)
-
+            with open('../Files/TDL.txt', 'w') as file:
+                file.writelines(todos)
             print(f"Todo {todo_rem} has been removed")
         except ValueError:
             print("Only specify task number to complete.")

@@ -1,8 +1,8 @@
-# from functions67 import get_todos, write_todos
-# If functions.py is in a folder called module:
-# from module import functions
 import functions67
+import time
 
+now = time.strftime("%b %d, %T")
+print('It is', now)
 
 while True:
     user_input = input('Enter add, show, edit, complete or exit: ')
