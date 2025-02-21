@@ -9,18 +9,18 @@ while True:
 
             task = input('Add a task: ') + "\n"
 
-            file = open('../Files/TDL.txt', 'r')
+            file = open('../TDL.txt', 'r')
             todos = file.readlines()
             file.close()
 
             todos.append(task)
 
-            file = open('../Files/TDL.txt', 'w')
+            file = open('../TDL.txt', 'w')
             file.writelines(todos)
             file.close()
 
         case 'show' | 'display':
-            fileshow = open('../Files/TDL.txt', 'r')
+            fileshow = open('../TDL.txt', 'r')
             todos = fileshow.readlines()
             fileshow.close()
 

@@ -18,14 +18,14 @@ while True:
     if user_input.startswith('add'):
         task = user_input[4:] + "\n"
 
-        todos = get_todos(filepath='../Files/TDL.txt')  # Files/TDL.txt is argument
+        todos = get_todos(filepath='../TDL.txt')  # Files/TDL.txt is argument
 
         todos.append(task)
 
-        write_todos('../Files/TDL.txt', todos)  # No variable assignment here, as it will return none.
+        write_todos('../TDL.txt', todos)  # No variable assignment here, as it will return none.
 
     elif user_input.startswith('show'):
-        todos = get_todos('../Files/TDL.txt')
+        todos = get_todos('../TDL.txt')
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -39,11 +39,11 @@ while True:
             number = user_input[5:]
             number = int(number) - 1
 
-            todos = get_todos('../Files/TDL.txt')
+            todos = get_todos('../TDL.txt')
             new_task = input('Enter the new task: ')
             todos[number] = new_task + '\n'
 
-            write_todos('../Files/TDL.txt', todos)
+            write_todos('../TDL.txt', todos)
 
             print('Task successfully edited.')
         except ValueError:
@@ -57,12 +57,12 @@ while True:
         try:
             number = int(user_input[9:])
 
-            todos = get_todos('../Files/TDL.txt')
+            todos = get_todos('../TDL.txt')
             uuuu = number - 1
             todo_rem = todos[uuuu].strip('\n')
             todos.pop(number - 1)
 
-            write_todos('../Files/TDL.txt', todos)
+            write_todos('../TDL.txt', todos)
 
             print(f"Todo {todo_rem} has been removed")
         except ValueError:

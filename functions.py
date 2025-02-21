@@ -1,4 +1,4 @@
-FILEPATH = 'Files/TDL.txt'
+FILEPATH = 'TDL.txt'
 
 
 def get_todos(filepath=FILEPATH):

@@ -10,17 +10,17 @@ while True:
             # file = open('../Files/TDL.txt', 'r')
             # todos = file.readlines()
             # file.close()
-            with open('../Files/TDL.txt', 'r') as file:
+            with open('../TDL.txt', 'r') as file:
                 todos = file.readlines()
 
             todos.append(task)
 
             #SIMILARLY HERE
-            with open('../Files/TDL.txt', 'w') as file:
+            with open('../TDL.txt', 'w') as file:
                 file.writelines(todos)
 
         case 'show' | 'display':
-            with open('../Files/TDL.txt', 'r') as fileshow:
+            with open('../TDL.txt', 'r') as fileshow:
                 todos = fileshow.readlines()
 
 

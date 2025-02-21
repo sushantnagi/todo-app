@@ -8,18 +8,18 @@ while True:
 
             task = input('Add a task: ') + "\n"
 
-            file = open('../Files/TDL.txt', 'r')  # Opens the file and reads it
+            file = open('../TDL.txt', 'r')  # Opens the file and reads it
             todos = file.readlines()  # add the content of the file to todos list. If file is empty, nothing is added
             file.close()
 
             todos.append(task)  # input task is added tp the list
 
-            file = open('../Files/TDL.txt', 'w')
+            file = open('../TDL.txt', 'w')
             file.writelines(todos)  # list is reprinted on the file
             file.close()
 
         case 'show' | 'display':
-            fileshow = open('../Files/TDL.txt', 'r')
+            fileshow = open('../TDL.txt', 'r')
             todos = fileshow.readlines()
             fileshow.close()
 

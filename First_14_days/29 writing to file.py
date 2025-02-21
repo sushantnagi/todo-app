@@ -7,7 +7,7 @@ while True:
         case 'add':
             task = input('Add a task: ') + "\n"  # adds a new line
             todos.append(task)
-            file = open('../Files/TDL.txt', 'w')  # new
+            file = open('../TDL.txt', 'w')  # new
             file.writelines(todos)  # new
         case 'show' | 'display':
             for index, item in enumerate(todos):

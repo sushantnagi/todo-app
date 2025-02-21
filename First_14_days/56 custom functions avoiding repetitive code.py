@@ -1,5 +1,5 @@
 def get_todos():
-    with open('../Files/TDL.txt', 'r') as file_local:
+    with open('../TDL.txt', 'r') as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
@@ -16,7 +16,7 @@ while True:
 
         todos.append(task)
 
-        with open('../Files/TDL.txt', 'w') as file:
+        with open('../TDL.txt', 'w') as file:
             file.writelines(todos)
 
     elif user_input.startswith('show'):
@@ -37,7 +37,7 @@ while True:
             todos = get_todos()
             new_task = input('Enter the new task: ')
             todos[number] = new_task + '\n'
-            with open('../Files/TDL.txt', 'w') as file:
+            with open('../TDL.txt', 'w') as file:
                 file.writelines(todos)
 
             print('Task successfully edited.')
@@ -56,7 +56,7 @@ while True:
             uuuu = number - 1
             todo_rem = todos[uuuu].strip('\n')
             todos.pop(number - 1)
-            with open('../Files/TDL.txt', 'w') as file:
+            with open('../TDL.txt', 'w') as file:
                 file.writelines(todos)
             print(f"Todo {todo_rem} has been removed")
         except ValueError:

@@ -3,7 +3,7 @@
 #
 # for example
 
-file = open('../Files/TDL.txt', 'r')
+file = open('../TDL.txt', 'r')
 var = file.readlines()
 print(var)
 print(type(var[0]))  # a list has strings
