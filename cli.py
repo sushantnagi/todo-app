@@ -1,4 +1,4 @@
-import functions67
+import functions
 import time
 
 now = time.strftime("%b %d, %T")
@@ -12,14 +12,14 @@ while True:
     if user_input.startswith('add'):
         task = user_input[4:] + "\n"
 
-        todos = functions67.get_todos()
+        todos = functions.get_todos()
 
         todos.append(task)
 
-        functions67.write_todos(todos)
+        functions.write_todos(todos)
 
     elif user_input.startswith('show'):
-        todos = functions67.get_todos()
+        todos = functions.get_todos()
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -33,11 +33,11 @@ while True:
             number = user_input[5:]
             number = int(number) - 1
 
-            todos = functions67.get_todos()
+            todos = functions.get_todos()
             new_task = input('Enter the new task: ')
             todos[number] = new_task + '\n'
 
-            functions67.write_todos(todos)
+            functions.write_todos(todos)
 
             print('Task successfully edited.')
         except ValueError:
@@ -51,12 +51,12 @@ while True:
         try:
             number = int(user_input[9:])
 
-            todos = functions67.get_todos()
+            todos = functions.get_todos()
             uuuu = number - 1
             todo_rem = todos[uuuu].strip('\n')
             todos.pop(number - 1)
 
-            functions67.write_todos(todos)
+            functions.write_todos(todos)
 
             print(f"Todo {todo_rem} has been removed")
         except ValueError:
